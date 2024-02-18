@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simple Iterations", "Simple Iterations\Simple Iterations.csproj", "{FFF87C94-574E-4225-BDC6-72A1F5E7A477}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFF87C94-574E-4225-BDC6-72A1F5E7A477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF87C94-574E-4225-BDC6-72A1F5E7A477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF87C94-574E-4225-BDC6-72A1F5E7A477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF87C94-574E-4225-BDC6-72A1F5E7A477}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65DD2547-E68E-4B83-9578-6952E1F8F601}
+	EndGlobalSection
+EndGlobal
