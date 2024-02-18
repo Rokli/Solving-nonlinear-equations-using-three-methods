@@ -21,7 +21,7 @@ namespace Simple_Iterations
             this.start = start;
             this.end = end;
             float tmp = Check(start, end);
-            if (tmp == 0)
+            if (tmp == -999)
                 CalculateTwo(start);
             else
                 CalculateOne(tmp);
@@ -34,32 +34,32 @@ namespace Simple_Iterations
             else
                 if (Math.Abs(FiDir(b)) < 1) return b;
             else
-                return 0;
+                return -999;
 
         }
         private void CalculateOne(float x)
         {
-            float x0 = x;
-            float x1 = Fi(x0);
-            while (Math.Abs(x1 - x0) > eps)
+            X = x;
+            int counter = 0;
+            do
             {
-                x0 = x1;
-                x1 = Fi(x0);
-            }
-            Console.WriteLine(x1);
+                prevX = X;
+                X = Fi(prevX);
+            } while (Math.Abs(prevX - X) > eps);
+            Console.WriteLine(X);
         }
         private void CalculateTwo(float x)
         {
             FindLambda();
             X = x;
-            int inter = 0;
+            int counter = 0;
             do
             {
                 prevX = X;
                 X = prevX + lambda * NoDir(prevX);
-                inter++;
+                counter++;
             } while (Math.Abs(prevX - X) > eps);
-            Console.WriteLine("Корень:" + X + " " + "Количество итераций:" +inter);
+            Console.WriteLine("Корень:" + X + " " + "Количество итераций:" + counter);
         }
         public void FindLambda()
         {
