@@ -14,18 +14,18 @@ namespace Simple_Iterations
         public float eps { get; set; } = 0.00001f;
         public float lambda { get; set; }
         public float start { get; set; }
-        public float end { get; set; }
-        public Iterations(float a, float b)
+        public float end { get; set; }        
+
+        public void Start(float start, float end)
         {
-            start = a;
-            end = b;
-            float tmp = Check(a, b);
+            this.start = start;
+            this.end = end;
+            float tmp = Check(start, end);
             if (tmp == 0)
-                CalculateTwo(a);
-            
+                CalculateTwo(start);
             else
                 CalculateOne(tmp);
-            
+
         }
         private float Check(float a, float b)
         {

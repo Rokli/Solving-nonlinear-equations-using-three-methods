@@ -9,10 +9,12 @@ namespace Main
     {
         static void Main()
         {
-            //Iterations iterations = new Iterations(3,4);
-            //Iterations iterations1 = new Iterations(-4,-3);
-            //Iterations iterations2 = new Iterations(-1,0);
-            Iterations iterations3 = new Iterations(0,1);
+            int[][] array = [[3, 4], [-4, -3], [-1, 0], [0,1]];
+            Iterations iterations = new Iterations();
+            foreach (int[] i in array)
+            {
+                iterations.Start(i[0], i[1]);
+            }
         }
     }
 }
