@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Simple_Iterations
 {
-    public class Iterations // простые итерации
+    public class Iterations: FunctionAndDerivative // простые итерации
     {
         public float X {  get; set; } 
         float prevX { get; set; }
@@ -91,14 +91,6 @@ namespace Simple_Iterations
         {
             if (Dir(intervalue) > 0) return -1;
             else return 1;
-        }
-        private float NoDir(float x)
-        {
-            return 2 * (float)Math.Pow(x, 4) - 24 * (float)Math.Pow(x, 2) - x + 8;
-        }
-        private float Dir(float x)
-        {
-            return 8 * (float)Math.Pow(x, 3) - 48 * x - 1;
         }
         private float Fi(float x)
         {
