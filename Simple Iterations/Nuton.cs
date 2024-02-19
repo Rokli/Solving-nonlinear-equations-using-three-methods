@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Simple_Iterations
 {
-    public class Nuton : FunctionAndDerivative
+    public class Nuton : FunctionAndDerivative, Method
     {
         public void Start(float start, float end)
         {

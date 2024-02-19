@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Simple_Iterations
 {
-    public class HalfDivisionMethod: FunctionAndDerivative
+    public class HalfDivisionMethod: FunctionAndDerivative, Method
     {
         public void Start(float start, float end) 
         {

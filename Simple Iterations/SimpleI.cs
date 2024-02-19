@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Simple_Iterations
 {
-    public class Iterations: FunctionAndDerivative // простые итерации
+    public class Iterations: FunctionAndDerivative, Method 
     {
         public float lambda { get; set; }
 
