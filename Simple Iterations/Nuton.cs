@@ -1,57 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Simple_Iterations
 {
-    //public partial class Nuton
-    //{
-    //    public float eps { get; set; } = 0.000001f;
-    //    public Nuton()
-    //    {
-    //    }
+    public class Nuton : FunctionAndDerivative
+    {
+        public void Start(float start, float end)
+        {
+            this.start = start;
+            this.end = end;
+            Calculate();
+        }
+        private float SelectingInterval()
+        {
+            if (NoDir(start) * DirDir(start) > 0) return start;
+            else return end;
+        }
+        private void Calculate()
+        {
+            X = SelectingInterval();
+            float x_1 = X - NoDir(X) / Dir(X);
+            int counter = 0;
+            while (Math.Abs(x_1 - X) > eps)
+            {
+                counter++;
+                X = x_1;
+                x_1 = X - NoDir(X) / Dir(X);
+            }
+            Console.WriteLine("Корень:" + X + " " + "Количество итераций:" + counter);
+        }
 
-    //    private void button1_Click(object sender, EventArgs e)
-    //    {
-    //        List<float> y = new List<float>();
-    //        List<float> x = new List<float>();
-    //        x.Add(5f);
-    //        x.Add(1f);
-    //        x.Add(-1f);
-    //        x.Add(-5f);
+        public float DirDir(float x) 
+        {
+            return 24 * (float)Math.Pow(x,2) - 48;
+        }
 
-    //        richTextBox1.Text += "Корень 1";
-    //        Calculate(x[0]);
-
-    //        richTextBox1.Text += "\nКорень 2";
-    //        Calculate(x[1]);
-
-    //        richTextBox1.Text += "\nКорень 3";
-    //        Calculate(x[2]);
-
-    //        richTextBox1.Text += "\nКорень 4";
-    //        Calculate(x[3]);
-    //    }
-    //    private float Calculate(float x_0)
-    //    {
-    //        float x_1 = x_0 - NoDir(x_0) / Dir(x_0);
-    //        while (Math.Abs(x_1 - x_0) > eps)
-    //        {
-    //            x_0 = x_1;
-    //            x_1 = x_0 - NoDir(x_0) / Dir(x_0);
-    //            richTextBox1.Text += $"\n{x_0}";
-    //        }
-    //        return x_1;
-    //    }
-    //    private float NoDir(float x)
-    //    {
-    //        return 2 * (float)Math.Pow(x, 4) - 24 * (float)Math.Pow(x, 2) - x + 8;
-    //    }
-    //    private float Dir(float x)
-    //    {
-    //        return 8 * (float)Math.Pow(x, 3) - 48 * x - 1;
-    //    }
-    //}
+    }
 }
