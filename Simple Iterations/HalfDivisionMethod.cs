@@ -14,7 +14,7 @@ namespace Simple_Iterations
             this.start = start;
             this.end = end;
             if(NoDir(start) * NoDir(end) < 0) CalculateOne();
-            else CalculateTwo();
+            else Console.WriteLine("Неправильно введён интервал");
         }
         public void CalculateOne()
         {
@@ -23,14 +23,11 @@ namespace Simple_Iterations
             do
             {
                 X = (array[0] + array[1]) / 2;
+                if (NoDir(X) == 0) break;
                 array = SelectingNextIteration(array[0], X) == 0 ? [array[0], X] : [X, array[1]];
                 counter++;
             } while (Math.Abs(array[1] - array[0]) >  2*eps);
             Console.WriteLine("Корень:" + X + " " + "Количество итераций:" + counter);
-        }
-        public void CalculateTwo()
-        {
-
         }
         public int SelectingNextIteration(float start,float x)
         {
