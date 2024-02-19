@@ -16,7 +16,11 @@ namespace Main
             //{
             //    iterations.Start(i[0], i[1]);
             //}
-            halfDivisionMethod.Start(3,4);
+            foreach (int[] i in array)
+            {
+                halfDivisionMethod.Start(i[0], i[1]);
+            }
+            
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Simple_Iterations
             this.start = start;
             this.end = end;
             if(NoDir(start) * NoDir(end) < 0) CalculateOne();
+            else CalculateTwo();
         }
         public void CalculateOne()
         {
