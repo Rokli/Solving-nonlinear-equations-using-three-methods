@@ -9,12 +9,7 @@ namespace Simple_Iterations
 {
     public class Iterations: FunctionAndDerivative // простые итерации
     {
-        public float X {  get; set; } 
-        float prevX { get; set; }
-        public float eps { get; set; } = 0.000001f;
         public float lambda { get; set; }
-        public float start { get; set; }
-        public float end { get; set; }        
 
         public void Start(float start, float end)
         {

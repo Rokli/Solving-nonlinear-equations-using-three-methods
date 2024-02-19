@@ -11,10 +11,12 @@ namespace Main
         {
             int[][] array = [[3, 4], [-4, -3], [-1, 0], [0,1]];
             Iterations iterations = new Iterations();
-            foreach (int[] i in array)
-            {
-                iterations.Start(i[0], i[1]);
-            }
+            HalfDivisionMethod halfDivisionMethod = new HalfDivisionMethod();
+            //foreach (int[] i in array)
+            //{
+            //    iterations.Start(i[0], i[1]);
+            //}
+            halfDivisionMethod.Start(3,4);
         }
     }
 }
