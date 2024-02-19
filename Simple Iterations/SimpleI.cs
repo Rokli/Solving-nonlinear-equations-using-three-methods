@@ -11,7 +11,7 @@ namespace Simple_Iterations
     {
         public float X {  get; set; } 
         float prevX { get; set; }
-        public float eps { get; set; } = 0.00001f;
+        public float eps { get; set; } = 0.000001f;
         public float lambda { get; set; }
         public float start { get; set; }
         public float end { get; set; }        
@@ -24,7 +24,13 @@ namespace Simple_Iterations
             if (tmp == -999)
                 CalculateTwo(start);
             else
-                CalculateOne(tmp);
+            {
+                if(CalculateOne(tmp) == 0)
+                {
+                    Console.WriteLine("Решим через второй метод");
+                    CalculateTwo(start);
+                }
+            }
 
         }
         private float Check(float a, float b)
@@ -37,7 +43,7 @@ namespace Simple_Iterations
                 return -999;
 
         }
-        private void CalculateOne(float x)
+        private int CalculateOne(float x)
         {
             X = x;
             int counter = 0;
@@ -45,8 +51,14 @@ namespace Simple_Iterations
             {
                 prevX = X;
                 X = Fi(prevX);
-            } while (Math.Abs(prevX - X) > eps);
-            Console.WriteLine(X);
+                if (X < start || X > end)
+                {
+                    Console.WriteLine("Корней нет или нет возможности выполнить расчет простым методом");
+                    return 0;
+                }
+            } while (Math.Abs(X - prevX) > eps);
+            Console.WriteLine("Корень:" + X + " " + "Количество итераций:" + counter);
+            return 1;
         }
         private void CalculateTwo(float x)
         {
